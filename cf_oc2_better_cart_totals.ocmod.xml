@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<modification>
+	<code>0306150302052020051803011820201520011219</code>
+  <name>Better Cart Totals</name>
+  <version>1.0</version>
+  <author>Cyber Fox</author>
+  <link>https://cyberfoxdigital.co.uk</link>
+	<file path="catalog/controller/checkout/cart.php">
+		<operation>
+			<search><![CDATA[$json['total'] = ]]></search>
+			<add position="before"><![CDATA[				$json['total_items'] = $this->cart->countProducts();
+				$json['total_price'] = $this->currency->format($total, $this->session->data['currency']);]]></add>
+		</operation>
+	</file>
+</modification>
