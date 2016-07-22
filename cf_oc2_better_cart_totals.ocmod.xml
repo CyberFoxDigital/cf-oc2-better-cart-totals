@@ -12,4 +12,10 @@
 				$json['total_price'] = $this->currency->format($total, $this->session->data['currency']);]]></add>
 		</operation>
 	</file>
+	<file path="catalog/controller/common/header.php">
+		<operation>
+			<search><![CDATA[$data['cart'] = $this->load->controller('common/cart');]]></search>
+			<add position="after"><![CDATA[		$data['cart']['total_items'] = $this->cart->countProducts();]]></add>
+		</operation>
+	</file>
 </modification>
